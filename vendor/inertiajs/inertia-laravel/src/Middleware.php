@@ -85,7 +85,7 @@ class Middleware
     /**
      * Define a callback that returns the relative URL.
      *
-     * @return \Closure|null
+     * @return Closure|null
      */
     public function urlResolver()
     {
@@ -95,7 +95,7 @@ class Middleware
     /**
      * Handle the incoming request.
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function handle(Request $request, Closure $next)
     {
@@ -122,6 +122,10 @@ class Middleware
         $response = $next($request);
         $response->headers->set('Vary', Header::INERTIA);
 
+        if ($response->isRedirect()) {
+            $this->reflash($request);
+        }
+
         if (! $request->header(Header::INERTIA)) {
             return $response;
         }
@@ -136,10 +140,6 @@ class Middleware
 
         if ($response->getStatusCode() === 302 && in_array($request->method(), ['PUT', 'PATCH', 'DELETE'])) {
             $response->setStatusCode(303);
-        }
-
-        if ($response->isRedirect()) {
-            $this->reflash($request);
         }
 
         return $response;
