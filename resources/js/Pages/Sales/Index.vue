@@ -1031,7 +1031,7 @@
         <div class="text-center mb-2">
           <div style="margin-bottom: 6px">
             <img
-              src="/images/logo.png"
+              :src="'/images/logo.png'"
               alt="logo"
               style="max-height: 40px; max-width: 100%; object-fit: contain"
             />
