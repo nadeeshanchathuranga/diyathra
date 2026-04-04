@@ -47,10 +47,10 @@ const currentYear = new Date().getFullYear();
       <div class="hidden lg:block lg:w-1/2 relative">
         <!-- Full-background image -->
         <img
-          :src="/images/login_img.png"
-          alt="Online මුදලාලි"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
+  :src="'/images/login_img.png'"
+  alt="Online මුදලාලි"
+  class="absolute inset-0 w-full h-full object-cover"
+/>
         <!-- Dark gradient overlay for readability -->
         <div :class="[
   'absolute inset-0',
