@@ -52,7 +52,13 @@ const currentYear = new Date().getFullYear();
           class="absolute inset-0 w-full h-full object-cover"
         />
         <!-- Dark gradient overlay for readability -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/75 via-indigo-800/65 to-purple-900/75"></div>
+        <div :class="[
+  'absolute inset-0',
+  'bg-gradient-to-br',
+  'from-blue-900/75',
+  'via-indigo-800/65',
+  'to-purple-900/75'
+]"></div>
 
         <!-- Overlay text content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full px-12 text-center">
